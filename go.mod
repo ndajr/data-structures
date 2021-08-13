@@ -1,4 +1,4 @@
-module github.com/neemiasjnr/grokking-algorithms
+module github.com/neemiasjnr/data-structures
 
 go 1.16
 
