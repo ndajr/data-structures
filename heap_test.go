@@ -21,8 +21,7 @@ func TestHeap(t *testing.T) {
 			//   / \    /
 			//  15 20  13
 			g.Assert(h.hasParent(0)).Equal(false)
-			g.Assert(h.parent(1)).Equal(2)
-			g.Assert(h.parent(2)).Equal(2)
+			g.Assert(h.Peek()).Equal(2)
 			g.Assert(h.parent(3)).Equal(4)
 			g.Assert(h.parent(4)).Equal(4)
 			g.Assert(h.parent(5)).Equal(8)
@@ -45,6 +44,7 @@ func TestHeap(t *testing.T) {
 			//    9      4   10   9
 			//   / \    / \
 			//  15 20  13  7
+			g.Assert(h.Peek()).Equal(2)
 			g.Assert(h.left(0)).Equal(3)
 			g.Assert(h.left(1)).Equal(9)
 			g.Assert(h.right(1)).Equal(4)
@@ -59,8 +59,7 @@ func TestHeap(t *testing.T) {
 			//    9      7   10   9
 			//   / \    /
 			//  15 20  13
-			g.Assert(h.parent(1)).Equal(3)
-			g.Assert(h.parent(2)).Equal(3)
+			g.Assert(h.Peek()).Equal(3)
 			g.Assert(h.parent(3)).Equal(4)
 			g.Assert(h.parent(4)).Equal(4)
 			g.Assert(h.parent(5)).Equal(8)
@@ -77,8 +76,7 @@ func TestHeap(t *testing.T) {
 			//    9      13   10   9
 			//   / \
 			//  15 20
-			g.Assert(h.parent(1)).Equal(4)
-			g.Assert(h.parent(2)).Equal(4)
+			g.Assert(h.Peek()).Equal(4)
 			g.Assert(h.parent(3)).Equal(7)
 			g.Assert(h.parent(4)).Equal(7)
 			g.Assert(h.parent(5)).Equal(8)

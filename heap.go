@@ -75,10 +75,6 @@ func (h Heap) hasParent(idx int) bool {
 	return p >= 0
 }
 
-func (h *Heap) swap(i, j int) {
-	h.items[i], h.items[j] = h.items[j], h.items[i]
-}
-
 func (h Heap) Peek() int {
 	if h.Len() == 0 {
 		return -1
@@ -105,7 +101,7 @@ func (h *Heap) add(item int) {
 func (h *Heap) up() {
 	idx := h.Len() - 1
 	for h.hasParent(idx) && h.parent(idx) > h.items[idx] {
-		h.swap(h.parentIndex(idx), idx)
+		h.items[h.parentIndex(idx)], h.items[idx] = h.items[idx], h.items[h.parentIndex(idx)]
 		idx = h.parentIndex(idx)
 	}
 }
@@ -121,7 +117,7 @@ func (h *Heap) down() {
 		if h.items[idx] < h.items[smallerChildIndex] {
 			break
 		} else {
-			h.swap(idx, smallerChildIndex)
+			h.items[idx], h.items[smallerChildIndex] = h.items[smallerChildIndex], h.items[idx]
 		}
 
 		idx = smallerChildIndex
