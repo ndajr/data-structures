@@ -14,12 +14,13 @@ func (q Queue) isEmpty() bool {
 	return q.list.Head == nil
 }
 
-func (q *Queue) Dequeue() bool {
+func (q *Queue) Dequeue() *Node {
 	if q.isEmpty() {
-		return false
+		return nil
 	}
-	q.list.Delete(*q.list.Head)
-	return true
+	head := *q.list.Head
+	q.list.Delete(head)
+	return &head
 }
 
 func (q Queue) String() string {
